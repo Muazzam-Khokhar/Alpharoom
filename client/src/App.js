@@ -6,6 +6,7 @@ import RegisterScreen from './screens/RegisterScreen';
 import LoginScreen from './screens/LoginScreen';
 import BookingScreen from './screens/BookingScreen'
 import ProfileScreen from './screens/ProfileScreen';
+import AdminScreen from './screens/AdminScreen';
 
 
 
@@ -16,6 +17,7 @@ function App() {
       <>
         <Router>
           <Routes>
+          <Route path='/admin' element={<AdminScreen/>} />
             <Route path='/' element={<HomeScreen/>} />
             <Route path='/book/:roomId/:fromDate/:toDate/' element={<BookingScreen/>} />
             <Route path='/register' element={<RegisterScreen/>} />

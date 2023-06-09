@@ -103,4 +103,14 @@ const cancelBooking = asyncHandler(async(req,res)=> {
     }
 })
 
-export { addBookingRoom, getBookingByUserId, cancelBooking }
+const getAllBookings = asyncHandler(async(req,res)=> {
+
+    try {
+        const booking = await Booking.find({})
+        res.send(booking)
+    } catch (error) {
+        res.status(400).json({error})
+    }
+})
+
+export { addBookingRoom, getBookingByUserId, cancelBooking, getAllBookings }

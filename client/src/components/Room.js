@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Room = ({ room, fromDate, toDate }) => {
     const [show, setShow] = useState(false);
+    console.log(room)
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);

@@ -25,8 +25,8 @@ const BookingScreen = () => {
 
   const getData = async () => {
     try {
-      if(localStorage.getItem('currentUser')){
-        window.location.reload='/login'
+      if (localStorage.getItem('currentUser')) {
+        window.location.reload = '/login'
       }
       setLoading(true)
       let response = await axios.get(`http://localhost:5000/api/rooms/${id.roomId}`)
@@ -43,13 +43,13 @@ const BookingScreen = () => {
   useEffect(() => {
     getData();
   }, [])
-  
-  
+
+
   const bookRoom = async () => {
-    
+
   }
-  
-  const onToken = async(token) => {
+
+  const onToken = async (token) => {
     const bookingDetails = {
       room,
       userId: JSON.parse(localStorage.getItem('currentUser')).data._id,
@@ -59,20 +59,20 @@ const BookingScreen = () => {
       totalDays,
       token,
     }
-    
+
     try {
       setLoading(true)
       const response = await axios.post('http://localhost:5000/api/bookings/bookroom/', bookingDetails)
       setLoading(false)
-      Swal.fire('Congratulations' , "Your Room Booked Successfully" , "success").then(result=> {
-        window.location.href='/bookings'
+      Swal.fire('Congratulations', "Your Room Booked Successfully", "success").then(result => {
+        window.location.href = '/bookings'
       })
     } catch (error) {
       console.log(error)
       setLoading(false)
-      Swal.fire('Oopss...' , 'Something went wrong' , 'error')
+      Swal.fire('Oopss...', 'Something went wrong', 'error')
     }
-    
+
   }
   return (
     <>
@@ -117,7 +117,7 @@ const BookingScreen = () => {
                     token={onToken}
                     stripeKey="pk_test_51NFv7oDOUReDh0bm5TyG8QRrtsiUE7pSmbDi9SZYnDovY89ugEl6Mm3Ol5VjPc8Th1e0qBwgcfEj0jQ0UsgR98UM00sb8B4uXC"
                   >
-                  <button className="btn btn-primary">Pay Now</button>
+                    <button className="btn btn-primary">Pay Now</button>
 
                   </StripeCheckout>
                 </div>
