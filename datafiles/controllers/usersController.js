@@ -18,7 +18,7 @@ const registerUser = asyncHandler(async (req, res) => {
             email,
             password,
         })
-        res.send("User Register Successfully")
+        res.send("User Register Successfully!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
     }
 })
 

@@ -1,26 +1,29 @@
-import express from 'express'
-import connectDB from './db.js';
-import roomRouters from './routes/roomRoute.js'
-import cors from 'cors';
-import userRoute from './routes/userRoute.js'
-import bookingRoute from './routes/bookingRoute.js'
+import express from 'express';
 
 
+// Create an Express application
 const app = express();
-app.use(express.json())
-app.use(cors())
 
-app.get('/', (req, res) => {
-    res.send('Hello World!');
+
+// Start the server
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
 
-connectDB();
 
-app.use('/api/rooms',roomRouters)
-app.use('/api/users',userRoute)
-app.use('/api/bookings', bookingRoute)
-app.listen(5000, () => {
-    console.log('Example app listening on port 5000!');
-});
 
-//Run app, then load http://localhost:5000 in a browser to see the output.
+// import truckRoutes from './routes/truckRoutes.js';
+// import userRoutes from './routes/userRoutes.js';
+  // app.use(express.json());
+  // Middleware to parse JSON request bodies
+  
+  // // Route handlers
+  // app.use('/api/trucks', truckRoutes);
+  // app.use('/api/users', userRoutes);
+  
+  // // Error handling middleware
+  // app.use((err, req, res, next) => {
+  //   console.error(err.stack);
+  //   res.status(500).json({ message: 'Internal Server Error' });
+  // });
